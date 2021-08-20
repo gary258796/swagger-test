@@ -24,10 +24,10 @@ import java.util.List;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2021-08-18T16:39:44.865Z")
 
 @Validated
-@Api(value = "pets", description = "the pets API")
+@Api(value = "pets")
 public interface PetsApi {
 
-    @ApiOperation(value = "search by name and age.", nickname = "searchAllPets", notes = "Return all pets with input name and age. If no input, return all pet by default. ", response = Pet.class, responseContainer = "List", tags={ "developers", })
+    @ApiOperation(value = "search by name and age.", nickname = "searchAllPets", notes = "Return all pets with input name and age. If no input, return all pet by default. ", response = Pet.class, responseContainer = "List", tags={ "pets", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "search results with matching pets", response = Pet.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "bad input parameter"),

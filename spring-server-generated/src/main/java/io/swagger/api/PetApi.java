@@ -23,10 +23,10 @@ import java.util.List;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2021-08-18T16:39:44.865Z")
 
 @Validated
-@Api(value = "pet", description = "the pet API")
+@Api(value = "pet")
 public interface PetApi {
 
-    @ApiOperation(value = "add a new pet", nickname = "addPet", notes = "Add new pet to system", tags={ "admins", })
+    @ApiOperation(value = "add a new pet", nickname = "addPet", notes = "Add new pet to system", tags={ "pet", })
     @ApiResponses(value = { 
         @ApiResponse(code = 201, message = "pet added"),
         @ApiResponse(code = 400, message = "Invalid opearation. Add failed."),
