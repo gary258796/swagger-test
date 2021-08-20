@@ -1,6 +1,6 @@
 # Test Swagger-CodeGen and Plugins
 
-The projects and files inside this repository listed below are all generated from Swagger-Hub with api defined at first.
+The projects and files inside this repository listed below are all generated from [Swagger-Hub](https://swagger.io/tools/swaggerhub/) with api defined at first.
 * java-client-generated
 * spring-server-generated
 * gary258796-pet-1.0.0-resolved.*
