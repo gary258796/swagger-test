@@ -11,7 +11,7 @@
         <version>1.5.9.RELEASE</version>
     </parent>
     <properties>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
         <springfox-version>2.7.0</springfox-version>
         <swagger.maven.plugin.version>3.1.8</swagger.maven.plugin.version>
         <asciidoctor.maven.plugin.version>2.2.1</asciidoctor.maven.plugin.version>
