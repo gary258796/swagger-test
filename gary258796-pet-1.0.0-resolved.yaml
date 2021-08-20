@@ -1,0 +1,101 @@
+---
+swagger: "2.0"
+info:
+  description: This is Gary's pet api
+  version: 1.0.0
+  title: Simple Inventory API
+  contact:
+    email: gary258796@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /gary258796/pet/1.0.0
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+schemes:
+- https
+paths:
+  /pets:
+    get:
+      tags:
+      - developers
+      summary: search by name and age.
+      description: |
+        Return all pets with input name and age. If no input, return all pet by default.
+      operationId: searchAllPets
+      produces:
+      - application/json
+      parameters:
+      - name: petName
+        in: query
+        description: The name of the pet you wants to search.
+        required: false
+        type: string
+      - name: age
+        in: query
+        description: The age of pet
+        required: false
+        type: integer
+        maximum: 30
+        minimum: 0
+        format: int32
+      responses:
+        "200":
+          description: search results with matching pets
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Pet'
+        "400":
+          description: bad input parameter
+        "404":
+          description: no matching pet found
+  /pet:
+    post:
+      tags:
+      - admins
+      summary: add a new pet
+      description: Add new pet to system
+      operationId: addPet
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: petName
+        in: query
+        description: The name of the new pet
+        required: true
+        type: string
+      - name: age
+        in: query
+        description: The age of the new pet
+        required: true
+        type: integer
+        maximum: 30
+        minimum: 0
+        format: int32
+      responses:
+        "201":
+          description: pet added
+        "400":
+          description: Invalid opearation. Add failed.
+        "409":
+          description: A pet with that name and age already exists
+definitions:
+  Pet:
+    type: object
+    required:
+    - age
+    - name
+    properties:
+      name:
+        type: string
+        example: Max Liao
+      age:
+        type: integer
+        example: 15

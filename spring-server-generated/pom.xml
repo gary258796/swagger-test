@@ -10,6 +10,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <springfox-version>2.7.0</springfox-version>
+        <swagger.maven.plugin.version>3.1.8</swagger.maven.plugin.version>
     </properties>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -36,6 +37,47 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.kongchen</groupId>
+                <artifactId>swagger-maven-plugin</artifactId>
+                <version>${swagger.maven.plugin.version}</version>
+                <configuration>
+                    <skipSwaggerGeneration>false</skipSwaggerGeneration>
+                    <apiSources>
+                        <apiSource>
+                            <springmvc>true</springmvc>
+                            <locations>
+                                <location>io.swagger.api</location>
+                            </locations>
+                            <schemes>
+                                <scheme>http</scheme>
+                                <scheme>https</scheme>
+                            </schemes>
+                            <!--will depend on host ip-->
+                            <!--so personal thought, this is only suit for all environments but prod.-->
+                            <host>localhost:8081</host>
+                            <basePath>/gary258796/pet/1.0.0</basePath>
+                            <info>
+                                <title>Your API name</title>
+                                <version>1.0.0</version>
+                                <description>This is Gary's pet api</description>
+                                <termsOfService>
+                                    http://www.yourterms.com
+                                </termsOfService>
+                                <contact>
+                                    <email>gary258796@gmail.com</email>
+                                    <name>Gary Liao</name>
+                                    <url>https://github.com/gary258796</url>
+                                </contact>
+                                <license>
+                                    <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+                                    <name>Apache 2.0</name>
+                                </license>
+                            </info>
+                        </apiSource>
+                    </apiSources>
                 </configuration>
             </plugin>
         </plugins>
